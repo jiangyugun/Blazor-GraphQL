@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MovieApp.Server.Interface;
 using MovieApp.Server.Models;
 
 namespace MovieApp.Server.DataAccess
 {
-    public class MovieDataAccessLayer:Movie
+    public class MovieDataAccessLayer : IMovie
     {
         readonly MovieDBContext _dBContext;
 

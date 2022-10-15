@@ -1,4 +1,9 @@
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore;
+using MovieApp.Server.DataAccess;
+using MovieApp.Server.GraphQL;
+using MovieApp.Server.Interface;
+using MovieApp.Server.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +11,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+builder.Services.AddPooledDbContextFactory<MovieDBContext>
+    (options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IMovie, MovieDataAccessLayer>();
+builder.Services.AddGraphQLServer().AddQueryType<MovieQueryResolver>();
 
 var app = builder.Build();
 
@@ -31,6 +41,10 @@ app.UseRouting();
 
 app.MapRazorPages();
 app.MapControllers();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapGraphQL();
+});
 app.MapFallbackToFile("index.html");
 
 app.Run();
