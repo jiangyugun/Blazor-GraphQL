@@ -5,5 +5,7 @@ namespace MovieApp.Server.Interface
     public interface IMovie
     {
         Task<List<Genre>> GetGenres();
+
+        Task AddMovie(Movie movie);
     }
 }

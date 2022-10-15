@@ -1,0 +1,46 @@
+﻿schema {
+  query: MovieQueryResolver
+  mutation: MovieMutationResolver
+}
+
+type MovieQueryResolver {
+  genreList: [Genre!]!
+}
+
+type MovieMutationResolver {
+  addMovie(movie: MovieInput!): AddMoviePayload!
+}
+
+type AddMoviePayload {
+  movie: Movie!
+}
+
+type Genre {
+  genreId: Int!
+  genreName: String!
+}
+
+input MovieInput {
+  movieId: Int!
+  title: String!
+  overview: String!
+  genre: String!
+  language: String!
+  duration: Int!
+  rating: Decimal!
+  posterPath: String
+}
+
+"The built-in `Decimal` scalar type."
+scalar Decimal
+
+type Movie {
+  movieId: Int!
+  title: String!
+  overview: String!
+  genre: String!
+  language: String!
+  duration: Int!
+  rating: Decimal!
+  posterPath: String
+}

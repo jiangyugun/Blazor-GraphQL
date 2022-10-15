@@ -7,8 +7,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <GraphQL Remove="GraphQLAPIClient\AddMovieData.graphql" />
+    <GraphQL Remove="GraphQLAPIClient\FetchGenreList.graphql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="GraphQLAPIClient\AddMovieData.graphql" />
+    <None Remove="GraphQLAPIClient\FetchGenreList.graphql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <GraphQLConfig Include="GraphQLAPIClient\AddMovieData.graphql" />
+    <GraphQLConfig Include="GraphQLAPIClient\FetchGenreList.graphql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Blazored.LocalStorage" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.10" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+    <PackageReference Include="StrawberryShake.CodeGeneration.CSharp.Analyzers" Version="12.5.0" />
+    <PackageReference Include="StrawberryShake.Transport.Http" Version="12.5.0" />
+    <PackageReference Include="Syncfusion.Blazor.Notifications" Version="20.3.0.49" />
+    <PackageReference Include="Syncfusion.Blazor.Themes" Version="20.3.0.49" />
   </ItemGroup>
 
   <ItemGroup>

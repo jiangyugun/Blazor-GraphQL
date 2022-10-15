@@ -14,7 +14,6 @@ namespace MovieApp.Server.Models
             Language = string.Empty;
         }
 
-        [Required]
         public int MovieId { get; set; }
 
         [Required]

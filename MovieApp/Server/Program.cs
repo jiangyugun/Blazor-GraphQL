@@ -17,7 +17,9 @@ builder.Services.AddRazorPages();
 builder.Services.AddPooledDbContextFactory<MovieDBContext>
     (options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IMovie, MovieDataAccessLayer>();
-builder.Services.AddGraphQLServer().AddQueryType<MovieQueryResolver>();
+builder.Services.AddGraphQLServer()
+    .AddQueryType<MovieQueryResolver>()
+    .AddMutationType<MovieMutationResolver>();
 
 var app = builder.Build();
 var FilleProviderPath = app.Environment.ContentRootPath + "/Poster";
