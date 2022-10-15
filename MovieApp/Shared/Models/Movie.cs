@@ -34,7 +34,7 @@ namespace MovieApp.Server.Models
 
         [Required]
         [Range(0, 10.0, ErrorMessage = "The value should be less than or equal to 10.")]
-        public decimal? Rating { get; set; }
+        public decimal Rating { get; set; }
         public string? PosterPath { get; set; }
     }
 }

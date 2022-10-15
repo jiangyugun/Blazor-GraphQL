@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.Server", "MovieApp\Server\MovieApp.Server.csproj", "{3933788E-C608-4536-ABF1-73D1689A6879}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieApp.Server", "MovieApp\Server\MovieApp.Server.csproj", "{3933788E-C608-4536-ABF1-73D1689A6879}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.Client", "MovieApp\Client\MovieApp.Client.csproj", "{188B5C29-029E-420D-9626-8BC4F424E073}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieApp.Client", "MovieApp\Client\MovieApp.Client.csproj", "{188B5C29-029E-420D-9626-8BC4F424E073}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.Shared", "MovieApp\Shared\MovieApp.Shared.csproj", "{4BE74FB6-89C6-4D0A-92A4-5B936322E3AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieApp.Shared", "MovieApp\Shared\MovieApp.Shared.csproj", "{4BE74FB6-89C6-4D0A-92A4-5B936322E3AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
