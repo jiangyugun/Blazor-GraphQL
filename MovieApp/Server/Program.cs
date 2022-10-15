@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using MovieApp.Server.DataAccess;
 using MovieApp.Server.GraphQL;
 using MovieApp.Server.Interface;
 using MovieApp.Server.Models;
+using System.Security.AccessControl;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,18 @@ builder.Services.AddScoped<IMovie, MovieDataAccessLayer>();
 builder.Services.AddGraphQLServer().AddQueryType<MovieQueryResolver>();
 
 var app = builder.Build();
+var FilleProviderPath = app.Environment.ContentRootPath + "/Poster";
+
+if (!Directory.Exists(FilleProviderPath))
+{
+    Directory.CreateDirectory(FilleProviderPath);
+}
+
+app.UseFileServer(new FileServerOptions { 
+    FileProvider = new PhysicalFileProvider(FilleProviderPath),
+    RequestPath = "/Poster",
+    EnableDirectoryBrowsing = true
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
