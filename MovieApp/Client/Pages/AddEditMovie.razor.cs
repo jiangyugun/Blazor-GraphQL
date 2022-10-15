@@ -5,7 +5,7 @@ using MovieApp.Server.Models;
 
 namespace MovieApp.Client.Pages
 {
-    public class AddEditMovieBase:ComponentBase
+    public class AddEditMovieBase : ComponentBase
     {
         [Inject]
         public NavigationManager NavigationManager { get; set; } = default!;
@@ -24,7 +24,7 @@ namespace MovieApp.Client.Pages
         const string DefaultStatus = "Maximum size allowed for the image is 10 MB";
         protected string status = DefaultStatus;
 
-        protected override async void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
             await GetAvailableGenre();
         }
