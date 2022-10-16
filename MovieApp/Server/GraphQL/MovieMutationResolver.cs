@@ -43,5 +43,55 @@ namespace MovieApp.Server.GraphQL
             _movieService.AddMovie(movie);
             return new AddMoviePayload(movie);
         }
+
+        /// <summary>
+        /// 編輯電影資料
+        /// </summary>
+        /// <param name="movie"></param>
+        /// <returns></returns>
+        public async Task<AddMoviePayload> EditMovie(Movie movie)
+        {
+            bool IsBase64String = CheckBase64String(movie.PosterPath);
+
+            if (IsBase64String)
+            {
+                string fileName = Guid.NewGuid() + ".jpg";
+                string fullPath = System.IO.Path.Combine(posterFolderPath, fileName);
+
+                byte[] imageBytes = Convert.FromBase64String(movie.PosterPath);
+                File.WriteAllBytes(fullPath, imageBytes);
+
+                movie.PosterPath = fileName;
+            }
+
+            await _movieService.UpdateMovie(movie);
+
+            return new AddMoviePayload(movie);
+        }
+
+        /// <summary>
+        /// 依據電影ID刪除資料
+        /// </summary>
+        /// <param name="movieId"></param>
+        /// <returns></returns>
+        public async Task<int> DeleteMovie(int movieId)
+        {
+            string converFileName = await _movieService.DeleteMovie(movieId);
+            if(!string.IsNullOrEmpty(converFileName) && converFileName != _config["DefaultPoster"])
+            {
+                string fullPath = System.IO.Path.Combine(posterFolderPath, converFileName);
+                if (File.Exists(fullPath))
+                {
+                    File.Delete(fullPath);
+                }
+            }
+            return movieId;
+        }
+
+        static bool CheckBase64String(string base64)
+        {
+            Span<byte> buffer = new(new byte[base64.Length]);
+            return Convert.TryFromBase64String(base64, buffer, out int bytesParsed);
+        }
     }
 }

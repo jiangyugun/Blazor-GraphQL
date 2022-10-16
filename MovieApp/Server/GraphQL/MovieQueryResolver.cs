@@ -20,5 +20,17 @@ namespace MovieApp.Server.GraphQL
         {
             return await _movieService.GetGenres();
         }
+
+        /// <summary>
+        /// 取得電影列表
+        /// </summary>
+        /// <returns></returns>
+        [UseSorting]
+        [UseFiltering]
+        public async Task<IQueryable<Movie>> GetMovieList()
+        {
+            List<Movie> availableMovies = await _movieService.GetAllMovies();
+            return availableMovies.AsQueryable();
+        }
     }
 }
