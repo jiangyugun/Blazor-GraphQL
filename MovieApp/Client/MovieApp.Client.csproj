@@ -8,17 +8,33 @@
 
   <ItemGroup>
     <GraphQL Remove="GraphQLAPIClient\AddMovieData.graphql" />
+    <GraphQL Remove="GraphQLAPIClient\DeleteMovieData.graphql" />
+    <GraphQL Remove="GraphQLAPIClient\EditMovieData.graphql" />
     <GraphQL Remove="GraphQLAPIClient\FetchGenreList.graphql" />
+    <GraphQL Remove="GraphQLAPIClient\FetchMovieList.graphql" />
+    <GraphQL Remove="GraphQLAPIClient\FilterMovieData.graphql" />
+    <GraphQL Remove="GraphQLAPIClient\SortMovieData.graphql" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="GraphQLAPIClient\AddMovieData.graphql" />
+    <None Remove="GraphQLAPIClient\DeleteMovieData.graphql" />
+    <None Remove="GraphQLAPIClient\EditMovieData.graphql" />
     <None Remove="GraphQLAPIClient\FetchGenreList.graphql" />
+    <None Remove="GraphQLAPIClient\FetchMovieList.graphql" />
+    <None Remove="GraphQLAPIClient\FilterMovieData.graphql" />
+    <None Remove="GraphQLAPIClient\SortMovieData.graphql" />
   </ItemGroup>
 
   <ItemGroup>
     <GraphQLConfig Include="GraphQLAPIClient\AddMovieData.graphql" />
+    <GraphQLConfig Include="GraphQLAPIClient\DeleteMovieData.graphql" />
+    <GraphQLConfig Include="GraphQLAPIClient\EditMovieData.graphql" />
     <GraphQLConfig Include="GraphQLAPIClient\FetchGenreList.graphql" />
+    <GraphQLConfig Include="GraphQLAPIClient\FetchMovieList.graphql" />
+    <GraphQLConfig Include="GraphQLAPIClient\FilterMovieData.graphql" />
+    <GraphQLConfig Include="GraphQLAPIClient\schema.extensions.graphql" />
+    <GraphQLConfig Include="GraphQLAPIClient\SortMovieData.graphql" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +52,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Shared\MovieApp.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Remove="GraphQLAPIClient\schema.extensions.graphql" />
   </ItemGroup>
 
 </Project>

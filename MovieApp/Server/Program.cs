@@ -19,7 +19,9 @@ builder.Services.AddPooledDbContextFactory<MovieDBContext>
 builder.Services.AddScoped<IMovie, MovieDataAccessLayer>();
 builder.Services.AddGraphQLServer()
     .AddQueryType<MovieQueryResolver>()
-    .AddMutationType<MovieMutationResolver>();
+    .AddMutationType<MovieMutationResolver>()
+    .AddFiltering()
+    .AddSorting(); ;
 
 var app = builder.Build();
 var FilleProviderPath = app.Environment.ContentRootPath + "/Poster";

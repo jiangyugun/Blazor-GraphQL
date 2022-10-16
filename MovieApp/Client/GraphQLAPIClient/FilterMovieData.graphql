@@ -1,0 +1,12 @@
+﻿query FilterMovieByID($filterInput:MovieFilterInput){
+  movieList(where:$filterInput){
+    movieId,
+    title,
+    posterPath,
+    genre,
+    rating,
+    language,
+    duration,
+    overview
+  }
+ }
