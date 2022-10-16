@@ -29,7 +29,7 @@ namespace MovieApp.Server.Models
         public string Language { get; set; } = null!;
 
         [Required]
-        [Range(0,10.0, ErrorMessage = "This field accepts only positive numbers.")]
+        [Range(0, int.MaxValue, ErrorMessage = "This field accepts only positive numbers.")]
         public int Duration { get; set; }
 
         [Required]
